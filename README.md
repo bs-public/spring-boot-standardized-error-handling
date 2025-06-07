@@ -2,6 +2,19 @@
 
 A Spring Boot app demonstrating standardized error responses for REST APIs using Spring’s `ProblemDetail` (RFC 7807).
 
+## ProblemDetail Object (RFC 7807)
+
+A `ProblemDetail` object provides a consistent structure for API error responses.
+
+**Standard fields:**
+- `type`: A URI that identifies the problem type.
+- `title`: A short, human-readable summary of the problem.
+- `status`: The HTTP status code.
+- `detail`: A human-readable explanation specific to this occurrence of the problem.
+- `instance`: A URI reference identifying the specific occurrence of the problem.
+
+You can also add your own fields (like `timestamp`, `errors`, `path`, etc.) as needed.
+
 ---
 
 ## Highlights
@@ -16,6 +29,16 @@ A Spring Boot app demonstrating standardized error responses for REST APIs using
 ```json
 {
     "type": "about:blank",
+    "title": "Duplicate Email",
+    "status": 409,
+    "detail": "Email already exists: test.user1@gmail.com",
+    "instance": "/users"
+}
+```
+
+```json
+{
+    "type": "about:blank",
     "title": "Validation Failed",
     "status": 400,
     "detail": "Request has validation errors.",
@@ -24,15 +47,5 @@ A Spring Boot app demonstrating standardized error responses for REST APIs using
         "email: Email is required",
         "name: Name is required"
     ]
-}
-```
-
-```json
-{
-    "type": "about:blank",
-    "title": "Duplicate Email",
-    "status": 409,
-    "detail": "Email already exists: test.user1@gmail.com",
-    "instance": "/users"
 }
 ```
