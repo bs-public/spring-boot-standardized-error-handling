@@ -28,6 +28,7 @@ public class User {
   @NotBlank(message = "Name is required")
   private String name;
 
+  @NotBlank(message = "Email is required")
   @Email(message = "Email should be valid")
   @Column(unique = true)
   private String email;
