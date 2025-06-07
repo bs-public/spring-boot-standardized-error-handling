@@ -11,3 +11,28 @@ A Spring Boot app demonstrating standardized error responses for REST APIs using
 
 ---
 
+## Example Error Responses
+
+```json
+{
+    "type": "about:blank",
+    "title": "Validation Failed",
+    "status": 400,
+    "detail": "Request has validation errors.",
+    "instance": "/users",
+    "errors": [
+        "email: Email is required",
+        "name: Name is required"
+    ]
+}
+```
+
+```json
+{
+    "type": "about:blank",
+    "title": "Duplicate Email",
+    "status": 409,
+    "detail": "Email already exists: test.user1@gmail.com",
+    "instance": "/users"
+}
+```
