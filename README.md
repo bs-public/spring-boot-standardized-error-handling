@@ -1,4 +1,4 @@
-# spring-boot-standardized-error-handling
+# Spring Boot Standardized Error Handling
 
 A Spring Boot app demonstrating standardized error responses for REST APIs using Spring’s `ProblemDetail` (RFC 7807).
 
@@ -36,6 +36,7 @@ You can also add your own fields (like `timestamp`, `errors`, `path`, etc.) as n
 }
 ```
 
+With additional field errors
 ```json
 {
     "type": "about:blank",
@@ -47,5 +48,17 @@ You can also add your own fields (like `timestamp`, `errors`, `path`, etc.) as n
         "email: Email is required",
         "name: Name is required"
     ]
+}
+```
+
+With additional field timestamp
+```json
+{
+    "type": "about:blank",
+    "title": "User Not Found",
+    "status": 404,
+    "detail": "User not found with id: 2",
+    "instance": "/users/2",
+    "timestamp": "2025-06-07T07:10:20.439414600Z"
 }
 ```
